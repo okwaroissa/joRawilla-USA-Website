@@ -14,22 +14,19 @@ body{
     width: 100%;
     height: 100vh;
     margin-inline: auto;
-    border:1px solid goldenrod;
     display:flex;
     flex-direction: column;
     justify-content: start;
     gap:0.1rem;
 }
 
-#navigation{
-    border: 1px solid blue;
-}
 #content{
-    border: 1px solid maroon;
+    border-top: 5px solid #145DA0;
+    border-bottom: 5px solid rgb(50,50,50);
 }
 #footer{
-    border: 1px solid black;
-    height: 75px;
+   
+    height: 80px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -44,9 +41,17 @@ body{
 #content{
     flex-grow: 1;
 }
+#contwrapper{
+    width:90%;
+    margin: auto;
+    border: 1px solid brown;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
 
 .navbar-color{
-    background-color: midnightblue;
+    background-color:#145DA0;
 }
 
 .nav-text{
@@ -56,3 +61,48 @@ body{
     color: goldenrod;
 }
 
+#mapping, #toc{
+    margin: 0;
+}
+#mapping{
+    width:75%;
+    border: 1px solid green;
+    padding: 0;
+}
+#toc{
+    width:25%;
+    border: 1px solid gray;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap:0.2rem;
+}
+
+#footercont{
+    width:350px;
+    border-bottom: 2px solid whitesmoke;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.toolbar{
+    height: 40px;
+    border-top: 1px solid #145DA0;
+    border-bottom: 1px solid #145DA0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.elastic{
+    flex-grow: 1;
+}
+.non-elastic{
+    flex-grow: 0;
+}
+
+#mapscenetoggle{
+    background-color: rgb(125, 125, 125);
+    border: 3px solid #145DA0;
+    color: white;
+}
