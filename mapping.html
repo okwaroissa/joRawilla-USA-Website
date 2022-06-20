@@ -51,19 +51,32 @@
                 </div>
                 <div id="toc">
                     <div id="standard-toolbar" class="toolbar non-elastic">
-                        Standard Toolbar
+                        <button class="btn btn-toolbar esri-icon-maps" id="mapview" title="Load Map View" onclick="ToMapView()"></button>
+                        <button class="btn btn-toolbar esri-icon-globe" id="sceneview" title="Load Scene View" onclick="ToSceneView()"></button>
+                        <div class="tool-divider"></div>
+                        <button class="btn btn-toolbar esri-icon-home" id="home-extent" title="Go To Massachusetts Extent" onclick="GoTo()"></button>
+                        <button class="btn btn-toolbar esri-icon-cursor" id="arrowcursor" title="Arrow Cursor"></button>
+                        <button class="btn btn-toolbar esri-icon-description" id="Identify" title="Identify Feature"></button>
                     </div>
-                    <div id="standard-toolbar" class="toolbar non-elastic">
-                        Measure Toolbar
-                    </div>
-                    <div id="toc-legend" class="elastic">
-                        This is TOC / Legend
-                    </div>
-
-                    <button id="mapscenetoggle" class="form-control btn non-elastic" onclick="ToggleView()"></button>
-                    <select name="basemap-selector" id="" class="form-control non-elastic">
-
+                    
+                    <select name="basemap-selector" id="basemap-selector" class="form-control form-select non-elastic">
+                      <option selected value="topo">Topo Map</option>
+                      <option value="satellite">Satellite Image</option>
+                      <option value="hybrid">Hybrid</option>
+                      <option value="openstreet">OpenStreet Map</option>
                     </select>
+
+                    <div id="toc-legend" class="elastic"></div>
+
+                    <div id="standard-toolbar" class="toolbar non-elastic">
+                      <button class="btn btn-toolbar esri-icon-table" id="attribtable" title="Attribute Table"></button>
+                      <button class="btn btn-toolbar esri-icon-measure-line" id="measuredist" title="Measure Distance"></button>
+                      <button class="btn btn-toolbar esri-icon-measure-area" id="measurearea" title="Measure Area"></button>
+                      <button class="btn btn-toolbar esri-icon-printer" id="pdfprint" title="Map PDF Creator"></button>
+                      <div class="tool-divider"></div>
+                      <button class="btn btn-toolbar esri-icon-polyline" id="editline" title="Line Graphic Editor"></button>
+                      <button class="btn btn-toolbar esri-icon-polygon" id="editpoly" title="Polygon Graphic Editor"></button>
+                    </div>
                     
                 </div>
             </div>
@@ -79,7 +92,12 @@
     <script src="https://js.arcgis.com/4.23/"></script>
     <script>
         InitializeMappingFunctions();
+        CreateSimpleFeatureLayers([].concat(massdotboundaries, massdothighwayassets))
         LoadMap();
+        
+        CreateTOC("Overview");
+        PopulateTOC([].concat(massdotboundaries, massdothighwayassets));
+        AnimateTOC();
     </script>
 </body>
 </html>
