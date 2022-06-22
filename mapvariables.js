@@ -5,6 +5,8 @@ let viewmode;
 let basemaptype;
 let hasbaselayers = false;
 let layerlist = [];
+let toclayerlabelids = [];
+let activelayertitle = "";
 let highwaysubdistsym = [123, 159, 204, 0.8, 0, 0, 0, 0.7, 1];
 let highwaysubdistricts = [
     "Polygon", "Highway Sub Districts", 

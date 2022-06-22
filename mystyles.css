@@ -178,4 +178,10 @@ ul li ul{
     display:block;
  }
 
+ .toc-layer-label{
+    font-style: italic;
+    padding-top: 1px;
+    padding-bottom: 1px;
+ }
+
 /* TOC & Legend Styles End*/

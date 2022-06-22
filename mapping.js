@@ -28,7 +28,6 @@ function LoadMap(){
                     tilt:45
                 },
                 spatialReference:SpatialReference.WebMercator,
-
                 container:document.getElementById("mapping")
             })
         }  
@@ -168,8 +167,25 @@ function PopulateTOC(layerscol){
         layercheck.checked = true;
 
         let layerlabel = document.createElement("label");
-        layerlabel.style.fontStyle = "Italic";
+        let baselabel = "toclabel"
+        layerlabel.setAttribute("id", baselabel.concat(i));
+        layerlabel.classList.add("toc-layer-label");
         layerlabel.textContent = layerscol[i][1];
+
+        toclayerlabelids.push(baselabel.concat(i)); //Add layer label id to collection
+
+        layerlabel.addEventListener("click", function(){
+            for (let j = 0; j < toclayerlabelids.length; j++){
+                let lblid = toclayerlabelids[j];
+                document.getElementById(lblid).style.color = RGBA_Hex(0, 0, 0, 1);
+                document.getElementById(lblid).style.fontWeight = "normal";   
+            }
+            this.style.color = RGBA_Hex(218,165,32,1);
+            this.style.fontWeight = "bold"
+            activelayertitle = this.textContent;
+            alert(activelayertitle);
+        })
+
         let layeritem = document.createElement("li");
         let layerdiv = document.createElement("div");
         layerdiv.appendChild(layercheck);
