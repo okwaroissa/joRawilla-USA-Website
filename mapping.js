@@ -320,7 +320,14 @@ function CreatePopupDialog(){
     title.classList.add("text-center");
     title.style.fontWeight = "bold";
     title.style.color = "#1469AC";
-    
+    title.textContent = activelayertitle + " Layer Attributes"
 
+    let popupclose = document.createElement("button");
+    popupclose.setAttribute("type", "button");
+    popupclose.setAttribute("data-bs-dismiss", "modal");
+    popupclose.style.color = "white";
+    popupclose.setAttribute("onclick", "ClosePopup()");
+    popupclose.classList.add("btn-close");
+    
 
 }
