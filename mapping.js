@@ -14,7 +14,8 @@ function LoadMap(){
                 zoom:8.9,
                 container: document.getElementById("mapping"),
                 spatialReference:SpatialReference.WebMercator
-            })
+            });
+            mapView.ui.add(BaseMapToggler(), "top-right");
         }else{
             map.ground = "world-elevation";
             sceneView = new SceneView({
@@ -183,7 +184,6 @@ function PopulateTOC(layerscol){
             this.style.color = RGBA_Hex(218,165,32,1);
             this.style.fontWeight = "bold"
             activelayertitle = this.textContent;
-            alert(activelayertitle);
         })
 
         let layeritem = document.createElement("li");
@@ -300,4 +300,27 @@ function GoTo(){
     if(viewmode === "SceneView"){
 
     }
+}
+
+function CreatePopupDialog(){
+    let popupmodal = document.createElement("div");
+    popupmodal.setAttribute("id", "popup-modal");
+    popupmodal.classList.add("modal", "fade");
+    let dialog = document.createElement("div");
+    dialog.classList.add("modal-dialog", "modal-xl", "modal-dialog-centered");
+
+    popupmodal.appendChild(dialog);
+    let content = document.createElement("div");
+    content.classList.add("modal-content");
+    dialog.appendChild(content);
+
+    let head = document.createElement("div");
+    head.classList.add("modal-header", "justify-content-center");
+    let title = document.createElement("h4");
+    title.classList.add("text-center");
+    title.style.fontWeight = "bold";
+    title.style.color = "#1469AC";
+    
+
+
 }

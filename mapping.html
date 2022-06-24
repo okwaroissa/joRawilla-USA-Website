@@ -46,10 +46,17 @@
         </section>
         <section id="content" class="pagesection">
             <div id="contwrapper">
-                <div id="mapping">
-                   
-                </div>
+                <div id="mapping"></div>
+
                 <div id="toc">
+
+                    <select name="basemap-selector" id="basemap-selector" class="form-control form-select non-elastic">
+                      <option selected value="topo">Topo Map</option>
+                      <option value="satellite">Satellite Image</option>
+                      <option value="hybrid">Hybrid</option>
+                      <option value="openstreet">OpenStreet Map</option>
+                    </select>
+                    
                     <div id="standard-toolbar" class="toolbar non-elastic">
                         <button class="btn btn-toolbar esri-icon-maps" id="mapview" title="Load Map View" onclick="ToMapView()"></button>
                         <button class="btn btn-toolbar esri-icon-globe" id="sceneview" title="Load Scene View" onclick="ToSceneView()"></button>
@@ -58,13 +65,6 @@
                         <button class="btn btn-toolbar esri-icon-cursor" id="arrowcursor" title="Arrow Cursor"></button>
                         <button class="btn btn-toolbar esri-icon-description" id="Identify" title="Identify Feature"></button>
                     </div>
-                    
-                    <select name="basemap-selector" id="basemap-selector" class="form-control form-select non-elastic">
-                      <option selected value="topo">Topo Map</option>
-                      <option value="satellite">Satellite Image</option>
-                      <option value="hybrid">Hybrid</option>
-                      <option value="openstreet">OpenStreet Map</option>
-                    </select>
 
                     <div id="toc-legend" class="elastic"></div>
 
@@ -77,7 +77,7 @@
                       <button class="btn btn-toolbar esri-icon-polyline" id="editline" title="Line Graphic Editor"></button>
                       <button class="btn btn-toolbar esri-icon-polygon" id="editpoly" title="Polygon Graphic Editor"></button>
                     </div>
-                    
+                     
                 </div>
             </div>
         </section>
@@ -94,7 +94,6 @@
         InitializeMappingFunctions();
         CreateSimpleFeatureLayers([].concat(massdotboundaries, massdothighwayassets))
         LoadMap();
-        
         CreateTOC("Overview");
         PopulateTOC([].concat(massdotboundaries, massdothighwayassets));
         AnimateTOC();

@@ -26,7 +26,6 @@ body{
     border-bottom: 5px solid rgb(50,50,50);
 }
 #footer{
-   
     height: 80px;
     display: flex;
     flex-direction: row;
@@ -43,9 +42,9 @@ body{
     flex-grow: 1;
 }
 #contwrapper{
-    width:90%;
+    width:95%;
     margin: auto;
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
     display: flex;
     flex-direction: row;
     height: 100%;
@@ -67,12 +66,12 @@ body{
 }
 #mapping{
     width:75%;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     padding: 0;
 }
 #toc{
     width:25%;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -104,12 +103,6 @@ body{
 .non-elastic{
     flex-grow: 0;
 }
-
-/* #mapscenetoggle{
-    background-color: rgb(125, 125, 125);
-    border: 3px solid #145DA0;
-    color: white;
-} */
 
 #basemap-selector{
     border: 3px solid #145DA0;
