@@ -10,7 +10,7 @@ function LoadMap(){
         if(viewmode == "MapView"){
             mapView = new MapView({
                 map:map,
-                center:[-72, 42],
+                center:[-71.7, 42],
                 zoom:8.9,
                 container: document.getElementById("mapping"),
                 spatialReference:SpatialReference.WebMercator
@@ -22,7 +22,7 @@ function LoadMap(){
                 map:map,
                 camera:{
                     position:{
-                        x:-72,
+                        x:-71.7,
                         y:42,
                         z:7500
                     },
@@ -305,7 +305,7 @@ function GoTo(){
 function CreatePopupDialog(){
     let popupmodal = document.createElement("div");
     popupmodal.setAttribute("id", "popup-modal");
-    popupmodal.classList.add("modal", "fade");
+    popupmodal.classList.add("modal", "fade", "non-elastic");
     let dialog = document.createElement("div");
     dialog.classList.add("modal-dialog", "modal-xl", "modal-dialog-centered");
 
@@ -316,7 +316,7 @@ function CreatePopupDialog(){
 
     let head = document.createElement("div");
     head.classList.add("modal-header", "justify-content-center");
-    let title = document.createElement("h4");
+    let title = document.createElement("h5");
     title.classList.add("text-center");
     title.style.fontWeight = "bold";
     title.style.color = "#1469AC";
@@ -328,6 +328,44 @@ function CreatePopupDialog(){
     popupclose.style.color = "white";
     popupclose.setAttribute("onclick", "ClosePopup()");
     popupclose.classList.add("btn-close");
-    
 
+    head.appendChild(title);
+    head.appendChild(popupclose);
+
+    content.appendChild(head);
+
+    let body = document.createElement("div");
+    body.setAttribute("id", "popupbody");
+    body.classList.add("modal-body");
+    
+    content.appendChild(body);
+
+    let footer = document.createElement("div");
+    footer.classList.add("modal-footer");
+    footer.style.backgroundColor = "#2E5077";
+    footer.style.color = "white";
+
+    content.appendChild(footer);
+
+    document.getElementById("toc").appendChild(popupmodal);
+
+
+
+}
+
+function ViewAttributeTable(){
+
+    CreatePopupDialog();
+
+    if (activelayertitle.length > 0){
+        let layer = map.allLayers.find(function(layer){
+            return layer.title === activelayertitle
+        });
+
+        // mapView.whenLayerView(layer).then(function(layerView){
+
+        // })
+        document.getElementById("popup-modal").style.display = "block";
+        document.getElementById("popup-modal").classList.add("show");
+    }
 }

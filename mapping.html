@@ -46,7 +46,7 @@
         </section>
         <section id="content" class="pagesection">
             <div id="contwrapper">
-                <div id="mapping"></div>
+                
 
                 <div id="toc">
 
@@ -69,7 +69,7 @@
                     <div id="toc-legend" class="elastic"></div>
 
                     <div id="standard-toolbar" class="toolbar non-elastic">
-                      <button class="btn btn-toolbar esri-icon-table" id="attribtable" title="Attribute Table"></button>
+                      <button class="btn btn-toolbar esri-icon-table" id="attribtable" title="Attribute Table" onclick="ViewAttributeTable()"></button>
                       <button class="btn btn-toolbar esri-icon-measure-line" id="measuredist" title="Measure Distance"></button>
                       <button class="btn btn-toolbar esri-icon-measure-area" id="measurearea" title="Measure Area"></button>
                       <button class="btn btn-toolbar esri-icon-printer" id="pdfprint" title="Map PDF Creator"></button>
@@ -79,6 +79,9 @@
                     </div>
                      
                 </div>
+
+                <div id="mapping"></div>
+                <div id="data"></div>
             </div>
         </section>
         <section id="footer" class="pagesection">
