@@ -184,6 +184,8 @@ function PopulateTOC(layerscol){
             this.style.color = RGBA_Hex(218,165,32,1);
             this.style.fontWeight = "bold"
             activelayertitle = this.textContent;
+
+            LoadAttributeTable()
         })
 
         let layeritem = document.createElement("li");
@@ -347,7 +349,7 @@ function CreatePopupDialog(){
 
     content.appendChild(footer);
 
-    document.getElementById("toc").appendChild(popupmodal);
+    document.getElementById("data").appendChild(popupmodal);
 
 
 
@@ -368,4 +370,24 @@ function ViewAttributeTable(){
         document.getElementById("popup-modal").style.display = "block";
         document.getElementById("popup-modal").classList.add("show");
     }
+}
+
+function LoadAttributeTable(){
+    if(activelayertitle.length > 0){
+        document.getElementById("attrcont").innerHTML = "";
+        require(["esri/widgets/FeatureTable"], function(FeatureTable){
+            let activelayer = map.allLayers.find(function(layer){
+                return layer.title === activelayertitle
+            });
+            let table = new FeatureTable({
+                id:"feature-table",
+                view:mapView,
+                layer:activelayer,
+                container: document.getElementById("attrcont")
+            });
+            
+        })
+        
+    }
+    
 }
