@@ -10,12 +10,11 @@ function LoadMap(){
         if(viewmode == "MapView"){
             mapView = new MapView({
                 map:map,
-                center:[-71.7, 42],
+                center:[-71.7, 42.1],
                 zoom:8.9,
                 container: document.getElementById("mapping"),
                 spatialReference:SpatialReference.WebMercator
             });
-            mapView.ui.add(BaseMapToggler(), "top-right");
         }else{
             map.ground = "world-elevation";
             sceneView = new SceneView({
@@ -385,9 +384,65 @@ function LoadAttributeTable(){
                 layer:activelayer,
                 container: document.getElementById("attrcont")
             });
-            
+        })   
+    }   
+}
+
+function Distance(){
+    ClearMeasurement();
+    require(["esri/widgets/Measurement"], function(Measurement){
+        if (viewmode == "MapView"){
+            measurement = new Measurement({
+                activeTool:"distance",
+                view:mapView
+            })
+        }
+        if (viewmode == "SceneView"){
+            measurement = new Measurement({
+                activeTool:"direct-line",
+                view:sceneView
+            })
+        }
+        measurement.container = document.getElementById("dynamtools");
+    })
+}
+
+function Area(){
+    ClearMeasurement();
+    require(["esri/widgets/Measurement"], function(Measurement){
+        measurement = new Measurement({
+            activeTool:"area",
         })
-        
+    })
+
+    if(viewmode == "MapView"){
+        measurement.view = mapView
     }
-    
+    if(viewmode == "SceneView"){
+        measurement.view = sceneView
+    }
+    measurement.container = document.getElementById("dynamtools");
+}
+
+function ClearMeasurement(){
+    if(measurement != null){
+        measurement.clear();
+    } 
+    document.getElementById("dynamtools").innerHTML = ""; 
+}
+
+function MaptoPDF(){
+    document.getElementById("dynamtools").innerHTML = "";
+    if(viewmode == "MapView"){
+        require(["esri/widgets/Print"], function(Print){
+            pdf = new Print({
+                // id:"printer",
+                view:mapView,
+                container:document.getElementById("dynamtools")
+            })
+        })
+    }  
+}
+function Digitize(){
+
 }

@@ -69,13 +69,15 @@
                     <div id="toc-legend" class="elastic"></div>
 
                     <div id="standard-toolbar" class="toolbar non-elastic">
-                      <button class="btn btn-toolbar esri-icon-table" id="attribtable" title="Attribute Table" onclick="ViewAttributeTable()"></button>
-                      <button class="btn btn-toolbar esri-icon-measure-line" id="measuredist" title="Measure Distance"></button>
-                      <button class="btn btn-toolbar esri-icon-measure-area" id="measurearea" title="Measure Area"></button>
-                      <button class="btn btn-toolbar esri-icon-printer" id="pdfprint" title="Map PDF Creator"></button>
+                      
+                      <button class="btn btn-toolbar esri-icon-measure-line" id="measuredist" title="Measure Distance" onclick="Distance()"></button>
+                      <button class="btn btn-toolbar esri-icon-measure-area" id="measurearea" title="Measure Area" onclick="Area()"></button>
+                      <button class="btn btn-toolbar esri-icon-trash" id="clearmeasure" title="Clear Measurement" onclick="ClearMeasurement()"></button>
+                      
                       <div class="tool-divider"></div>
-                      <button class="btn btn-toolbar esri-icon-polyline" id="editline" title="Line Graphic Editor"></button>
-                      <button class="btn btn-toolbar esri-icon-polygon" id="editpoly" title="Polygon Graphic Editor"></button>
+                      <button class="btn btn-toolbar esri-icon-polyline" id="editline" title="Line Graphic Editor" onclick="Digitize()"></button>
+                      <button class="btn btn-toolbar esri-icon-polygon" id="editpoly" title="Polygon Graphic Editor" onclick="Digitize()"></button>
+                      <button class="btn btn-toolbar esri-icon-printer" id="pdfprint" title="Map PDF Creator" onclick="MaptoPDF()"></button>
                     </div>
                      
                 </div>
@@ -83,6 +85,7 @@
                 <div id="mapping"></div>
                 <div id="data">
                   <div id="attrcont"></div>
+                  <div id="dynamtools" class=""></div>
                 </div>
             </div>
         </section>
