@@ -40,6 +40,7 @@ body{
 }
 #content{
     flex-grow: 1;
+    flex-shrink: 1;
 }
 #contwrapper{
     width:98%;
@@ -68,6 +69,8 @@ body{
     width:56%;
     /* border: 1px solid green; */
     padding: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 #toc{
     width:22%;
@@ -110,10 +113,13 @@ body{
 }
 .non-elastic{
     flex-grow: 0;
+    flex-shrink: 0;
 }
 
 #basemap-selector{
     border: 3px solid #145DA0;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 /* Toolbar Styles Start*/
@@ -205,16 +211,16 @@ ul li ul{
 #dynamtools{
     border: 1px solid green;
     flex-grow: 0;
-    flex-shrink: 0;
+    flex-shrink: 1;
     max-height: 225px;
+    /* min-height: 50px; */
 }
 .esri-print{
     padding:0;
 }
 
 .esri-grid__grid, .esri-feature-table__title, .esri-print__container{
-    font-family:Lato;
-    
+    font-family:Lato;  
 }
 
 .esri-feature-table__title{
